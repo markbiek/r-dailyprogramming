@@ -17,6 +17,14 @@ if size % 2 == 0 or size < 3 or size > 21:
 
 tree = []
 
-tree.push( trunk * 3 )
+tdiff = (size/2) - 1
+tree.append( (tdiff * ' ') + (trunk * 3) + (tdiff * ' ') )
 
-print tree
+cursize = size
+while cursize > 0:
+    spaces = (size-cursize) / 2
+    tree.append((spaces * ' ') + (leaf * cursize) + (spaces * ' ') + '\n')
+    cursize = cursize - 2
+
+
+print "".join(reversed(tree))
