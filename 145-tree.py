@@ -15,4 +15,8 @@ if size % 2 == 0 or size < 3 or size > 21:
     sys.stderr.write("Size must be an odd number between 3-21.\n")
     sys.exit(1)
 
-print input
+tree = []
+
+tree.push( trunk * 3 )
+
+print tree
