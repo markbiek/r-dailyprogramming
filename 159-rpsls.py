@@ -42,12 +42,18 @@ while True:
         if choice in choices.keys():
             cchoice = randint(1,5)
 
-            print "\nPlayer picked: " + choices[choice]
-            print "Computer picked: " + choices[cchoice]
+            pc = choices[choice]
+            cc = choices[cchoice]
+
+            print "\nPlayer picked: " + pc
+            print "Computer picked: " + cc
 
             if choice == cchoice:
                 print "Tie!\n"
             else:
-                pass
+                if cc in moves[pc]:
+                    print win_text[pc+cc] + ", Player wins!\n"
+                else:
+                    print win_text[cc+pc] + ", Computer wins!\n"
         else:
             print "Invalid choice."
