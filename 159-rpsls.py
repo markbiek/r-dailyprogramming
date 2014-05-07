@@ -3,6 +3,19 @@
 from random import randint
 import sys
 
+win_text = {
+        'ScissorsPaper': 'Scissors cut Paper',
+        'PaperRock': 'Paper covers Rock',
+        'RockLizard': 'Rock crushes Lizard',
+        'LizardSpock': 'Lizard poisons Spock',
+        'SpockScissors': 'Spock smashes Scissors',
+        'ScissorsLizard': 'Scissors decpaitate Lizard',
+        'LizardPaper': 'Lizard eats Paper',
+        'PaperSpock': 'Paper disproves Spock',
+        'SpockRock': 'Spock vaporizes Rock',
+        'RockScissors': 'Rock crushes scissors'
+        }
+
 moves = {
         'Rock': ['Lizard', 'Scissors'],
         'Paper': ['Rock', 'Spock'],
