@@ -10,25 +10,12 @@ stats = {
         "ties": 0
         }
 
-win_text = {
-        'ScissorsPaper': 'Scissors cut Paper',
-        'PaperRock': 'Paper covers Rock',
-        'RockLizard': 'Rock crushes Lizard',
-        'LizardSpock': 'Lizard poisons Spock',
-        'SpockScissors': 'Spock smashes Scissors',
-        'ScissorsLizard': 'Scissors decapitate Lizard',
-        'LizardPaper': 'Lizard eats Paper',
-        'PaperSpock': 'Paper disproves Spock',
-        'SpockRock': 'Spock vaporizes Rock',
-        'RockScissors': 'Rock crushes scissors'
-        }
-
 moves = {
-        'Rock': ['Lizard', 'Scissors'],
-        'Paper': ['Rock', 'Spock'],
-        'Scissors': ['Paper', 'Lizard'],
-        'Lizard': ['Spock', 'Paper'],
-        'Spock': ['Scissors', 'Rock']
+        'Rock': {'Lizard':'crushes', 'Scissors':'crushes'},
+        'Paper': {'Rock':'covers', 'Spock':'disproves'},
+        'Scissors': {'Paper':'cut', 'Lizard':'decapitate'},
+        'Lizard': {'Spock':'poisons', 'Paper':'eats'},
+        'Spock': {'Scissors':'smashes', 'Rock':'vaporizes'}
         }
 
 choices = dict(zip(range(1,6), moves.keys()))
@@ -75,11 +62,12 @@ while True:
                 stats["ties"] = stats["ties"] + 1
                 print "Tie!\n"
             else:
-                if cc in moves[pc]:
+                if cc in moves[pc].keys():
                     stats["pwins"] = stats["pwins"] + 1
-                    print win_text[pc+cc] + ", Player wins!\n"
+                    win_text = pc + " " + moves[pc][cc] + " " + cc + ", Player wins!\n"
                 else:
                     stats["cwins"] = stats["cwins"] + 1
-                    print win_text[cc+pc] + ", Computer wins!\n"
+                    win_text = cc + " " + moves[cc][pc] + " " + pc + ", Computer wins!\n"
+                print win_text
         else:
             print "Invalid choice."
